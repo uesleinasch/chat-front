@@ -1,11 +1,14 @@
 <footer class="footer">
     <div class="footer-container">
         <ul class="footer-actions">
+
             <li>
-                <app-button label="Enviar" [icon]="'ph ph-chat-circle'" [variant]="'tertiary'" (click)="navigateToSend()"></app-button>
+                <app-button label="Conversas" [icon]="'ph ph-chats-circle'" [variant]="'tertiary'"
+                    (click)="navigateToConversations()"></app-button>
             </li>
             <li>
-                <app-button label="Conversas" [icon]="'ph ph-chats-circle'" [variant]="'tertiary'" (click)="navigateToConversations()"></app-button>
+                <app-button label="Enviar" [icon]="'ph ph-chat-circle'" [variant]="'tertiary'"
+                    (click)="navigateToSend()"></app-button>
             </li>
             <li>
                 <app-button label="Ligar" [icon]="'ph ph-phone'" [variant]="'tertiary'"

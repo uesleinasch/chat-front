@@ -5,8 +5,10 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './chat-list.component.html',
-  styleUrl: './chat-list.component.css'
+  styleUrl: './chat-list.component.css',
 })
 export class ChatListComponent {
+  mockChats = [
 
+  ];
 }
