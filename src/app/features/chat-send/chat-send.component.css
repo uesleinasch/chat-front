@@ -8,7 +8,7 @@ O chat container deve ocupar toda a área disponível, exceto o cabeçalho e o r
   overflow: hidden;
   background-color: var(--bg-accent);
 }
-
+ 
 .chat-inout-area {
   position: absolute;
   bottom: 0px;
@@ -22,4 +22,7 @@ O chat container deve ocupar toda a área disponível, exceto o cabeçalho e o r
     padding-left: var(--space-3);
     padding-right: var(--space-3);
     overflow-y: auto;
+    flex: 1;
+    height: 0; /* Força o flex-grow a funcionar corretamente */
+    scroll-behavior: smooth;
 }

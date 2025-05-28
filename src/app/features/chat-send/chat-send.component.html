@@ -1,5 +1,5 @@
 <div class="chat-container">
-  <div class="messages-area">
+  <div class="messages-area" #messagesContainer>
     @for (message of messages(); track message.id) {
       <app-message-box [message]="message"></app-message-box>
     }
