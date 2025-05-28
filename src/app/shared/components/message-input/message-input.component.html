@@ -1,1 +1,51 @@
-<p>message-input works!</p>
+<div class="message-input">
+  <div class="message-input__container">
+    <!-- Botão de Câmera -->
+    <div class="message-input__camera">
+      <app-button 
+        [icon]="'ph ph-camera-plus'" 
+        variant="tertiary" 
+        type="circle" 
+        size="medium"
+        ariaLabel="Tirar foto"
+        (onClick)="openCamera()">
+      </app-button>
+    </div>
+
+    <!-- Campo de Input -->
+    <div class="message-input__field-container">
+      <textarea 
+        class="message-input__field"
+        placeholder="Digite uma mensagem..."
+        rows="1"
+        maxlength="4096"
+        [value]="message()"
+        (input)="updateMessage($event)"
+        (keypress)="onKeyPress($event)">
+      </textarea>
+    </div>
+
+    <!-- Botão de Envio -->
+    <div class="message-input__send">
+      @if (message().trim()) {
+        <app-button 
+          [icon]="'ph ph-paper-plane-tilt'" 
+          variant="primary" 
+          type="circle" 
+          size="medium"
+          ariaLabel="Enviar mensagem"
+          (onClick)="sendMessage()">
+        </app-button>
+      }
+    </div>
+  </div>
+
+  <!-- Input de arquivo oculto para câmera -->
+  <input 
+    #fileInput
+    type="file" 
+    accept="image/*" 
+    capture="environment"
+    style="display: none;"
+    (change)="onFileSelected($event)">
+</div>
