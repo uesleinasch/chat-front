@@ -6,13 +6,20 @@ O chat container deve ocupar toda a área disponível, exceto o cabeçalho e o r
   flex-direction: column;
   height: calc(100vh - var(--header-height) - var(--footer-height));
   overflow: hidden;
-  background-color: red;
+  background-color: var(--bg-accent);
 }
 
-.chat-inout-area{
-    position: absolute;
-    bottom: 0px;
-    left: 0;
-    width: 100%;
-    background-color: aliceblue;
+.chat-inout-area {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  background-color: aliceblue;
+}
+.messages-area{
+    padding-top: var(--space-4);
+    padding-bottom: var(--space-16);
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+    overflow-y: auto;
 }

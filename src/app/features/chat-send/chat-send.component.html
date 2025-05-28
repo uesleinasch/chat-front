@@ -1,13 +1,7 @@
 <div class="chat-container">
   <div class="messages-area">
-    @for (message of messages(); track $index) {
+    @for (message of messages(); track message.id) {
       <app-message-box [message]="message"></app-message-box>
-    }
-    
-    @for (photo of photos(); track $index) {
-      <div class="photo-item">
-        <img [src]="photo" alt="Foto enviada" style="max-width: 200px; border-radius: 8px;">
-      </div>
     }
   </div>
 

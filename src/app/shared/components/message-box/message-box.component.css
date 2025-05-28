@@ -143,3 +143,28 @@
     font-size: var(--text-sm);
   }
 }
+
+.message-image {
+  margin-bottom: var(--space-1);
+}
+
+.message-image img {
+  max-width: 20rem;
+  max-height: 20rem;
+  width: auto;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.message-image img:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Image message adjustments */
+.message-bubble:has(.message-image) {
+  padding: var(--space-2);
+}

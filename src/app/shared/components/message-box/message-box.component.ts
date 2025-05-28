@@ -1,8 +1,12 @@
 import { Component, Input, signal } from '@angular/core';
 
+export type MessageType = 'text' | 'image';
+
 export interface Message {
   id: string;
-  text: string;
+  type: MessageType;
+  text?: string;
+  imageUrl?: string;
   timestamp: Date;
   isSent: boolean;
   isDelivered?: boolean;
