@@ -5,4 +5,5 @@ export type IconsLibrary =
   | 'ph ph-chat'
   | 'ph ph-chat-circle'
   | 'ph ph-chat-circle-dots'
-  | 'ph ph-paper-plane-tilt';
+  | 'ph ph-paper-plane-tilt'
+  | 'ph ph-phone';
