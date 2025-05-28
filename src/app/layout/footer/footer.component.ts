@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { ButtonComponent } from "../../shared/components/button/button.component";
 
 @Component({
@@ -9,6 +10,15 @@ import { ButtonComponent } from "../../shared/components/button/button.component
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+  private router = inject(Router);
+
+  navigateToSend() {
+    this.router.navigate(['/chat-send']);
+  }
+
+  navigateToConversations() {
+    this.router.navigate(['/chat-list']);
+  }
 
   makeCall() {
     const phoneNumber = '+5541988507683'; 
