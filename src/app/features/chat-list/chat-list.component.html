@@ -1,13 +1,55 @@
 <div class="messages-list">
-    <input type="text" name="search" id="" placeholder="Pesquisar mensagens" class="messages-list__search" />
-    <ul class="messages-list__items">
-        <li class="message-item">
-            <span class="message-date">10-06-2025</span>
-            <span class="mensage-preview">Este é um preview da mensagem</span>
-        </li>
-        <li class="message-item">
-            <span class="message-date">10-06-2025</span>
-            <span class="mensage-preview">Este é um preview da mensagem</span>
-        </li>
-    </ul>
-</div>
+    <div class="search-container">
+        <div class="search-input-wrapper">
+            <input 
+                type="text" 
+                name="search" 
+                placeholder="Pesquisar por mensagem, remetente ou data..." 
+                class="search-input"
+                [value]="searchText()"
+                (input)="onSearchChange($event)"
+            />
+            <button class="search-button" (click)="onSearchClick()" type="button">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <div class="messages-container">
+        @if (filteredChats().length > 0) {
+            <ul class="messages-list__items">
+                @for (chat of filteredChats(); track chat.id) {
+                    <li class="message-item">
+                        <div class="message-header">
+                            <span class="message-sender">{{ chat.sender }}</span>
+                            <div class="message-timestamp">
+                                <span class="message-date">{{ formatDate(chat.date) }}</span>
+                                <span class="message-time">{{ formatTime(chat.date) }}</span>
+                            </div>
+                        </div>
+                        <div class="message-content">
+                            <span class="message-preview">{{ getPreviewText(chat.fullMessage, 8) }}</span>
+                        </div>
+                    </li>
+                }
+            </ul>
+        } @else {
+            <div class="no-results">
+                <svg class="no-results-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <span class="no-results-text">
+                    @if (searchText()) {
+                        Nenhuma mensagem encontrada para "{{ searchText() }}"
+                    } @else {
+                        Nenhuma mensagem disponível
+                    }
+                </span>
+            </div>
+        }
+    </div>
+</div> 
