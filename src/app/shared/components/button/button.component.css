@@ -1,0 +1,271 @@
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-family: inherit;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  overflow: hidden;
+  user-select: none;
+  outline: none;
+}
+
+/* Efeito ripple de feedback */
+.btn::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width var(--transition-fast), height var(--transition-fast);
+}
+
+.btn:active::before {
+  width: 200%;
+  height: 200%;
+}
+
+/* ========================================
+   VARIANTS
+   ======================================== */
+
+/* Primary variant */
+.btn--primary {
+  background: var(--color-primary-500);
+  color: var(--color-neutral-0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:hover:not(.btn--disabled) {
+  background: var(--color-primary-600);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-0.1rem);
+}
+
+.btn--primary:active:not(.btn--disabled) {
+  background: var(--color-primary-700);
+  transform: translateY(0);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--primary:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+/* Secondary variant */
+.btn--secondary {
+  background: var(--color-neutral-0);
+  color: var(--color-primary-500);
+  border: 0.1rem solid var(--color-primary-500);
+  box-shadow: var(--shadow-xs);
+}
+
+.btn--secondary:hover:not(.btn--disabled) {
+  background: var(--color-primary-50);
+  border-color: var(--color-primary-600);
+  box-shadow: var(--shadow-sm);
+  transform: translateY(-0.1rem);
+}
+
+.btn--secondary:active:not(.btn--disabled) {
+  background: var(--color-primary-100);
+  transform: translateY(0);
+}
+
+.btn--secondary:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+/* Tertiary variant */
+.btn--tertiary {
+  background: transparent;
+  color: var(--color-primary-500);
+}
+
+.btn--tertiary:hover:not(.btn--disabled) {
+  background: var(--color-primary-50);
+  transform: translateY(-0.1rem);
+}
+
+.btn--tertiary:active:not(.btn--disabled) {
+  background: var(--color-primary-100);
+  transform: translateY(0);
+}
+
+.btn--tertiary:focus-visible {
+  box-shadow: var(--shadow-focus);
+}
+
+/* ========================================
+   TYPES (SHAPES)
+   ======================================== */
+
+.btn--round {
+  border-radius: var(--radius-lg);
+}
+
+.btn--square {
+  border-radius: var(--radius-md);
+}
+
+.btn--text {
+  border-radius: var(--radius-sm);
+}
+
+.btn--circle {
+  border-radius: var(--radius-full);
+  aspect-ratio: 1;
+}
+
+/* ========================================
+   SIZES
+   ======================================== */
+
+.btn--small {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  min-height: 3.2rem;
+}
+
+.btn--small.btn--circle {
+  width: 3.2rem;
+  height: 3.2rem;
+  padding: 0;
+}
+
+.btn--medium {
+  padding: var(--space-3) var(--space-5);
+  font-size: var(--text-md);
+  min-height: 4rem;
+}
+
+.btn--medium.btn--circle {
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+}
+
+.btn--large {
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--text-lg);
+  min-height: 4.8rem;
+}
+
+.btn--large.btn--circle {
+  width: 4.8rem;
+  height: 4.8rem;
+  padding: 0;
+}
+
+/* ========================================
+   DISABLED STATE
+   ======================================== */
+
+.btn--disabled {
+  background: var(--color-neutral-200) !important;
+  color: var(--color-neutral-400) !important;
+  border-color: var(--color-neutral-200) !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.btn--disabled::before {
+  display: none;
+}
+
+/* ========================================
+   ICON & LABEL
+   ======================================== */
+
+.btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Small button icons */
+.btn--small .btn__icon {
+  width: 1.6rem;
+  height: 1.6rem;
+  font-size: 1.6rem;
+}
+
+/* Medium button icons */
+.btn--medium .btn__icon {
+  width: 2rem;
+  height: 2rem;
+  font-size: 2rem;
+}
+
+/* Large button icons */
+.btn--large .btn__icon {
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+}
+
+/* Circle button - ícone ocupa todo o espaço */
+.btn--circle .btn__icon {
+  width: 100%;
+  height: 100%;
+}
+
+.btn__label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Apenas ícone (sem label) */
+.btn--circle .btn__label {
+  display: none;
+}
+
+/* ========================================
+   LOADING STATE (Para uso futuro)
+   ======================================== */
+
+.btn--loading {
+  pointer-events: none;
+}
+
+.btn--loading .btn__label {
+  opacity: 0;
+}
+
+/* ========================================
+   FOCUS STYLES
+   ======================================== */
+
+.btn:focus-visible {
+  outline: none;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .btn--large {
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--text-md);
+    min-height: 4rem;
+  }
+
+  .btn--medium {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--text-sm);
+    min-height: 3.6rem;
+  }
+}

@@ -1,1 +1,19 @@
-<p>button works!</p>
+<button 
+  class="btn btn--{{ variant() }} btn--{{ type() }} btn--{{ size() }}"
+  [class.btn--disabled]="disabled()"
+  [disabled]="disabled()"
+  [id]="id()"
+  [name]="name()"
+  [attr.aria-label]="ariaLabel() || label()"
+  (click)="handleClick()">
+  
+  @if (icon()) {
+    <span class="btn__icon">
+      <app-icon [size]="iconSize()" [icon]="icon()"></app-icon>
+    </span>
+  }
+  
+  @if (label() && type() !== 'circle') {
+    <span class="btn__label">{{ label() }}</span>
+  }
+</button>
