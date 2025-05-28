@@ -1,1 +1,20 @@
-<p>header works!</p>
+<header class="chat-header">
+    <div class="header-container">
+        <div class="header-left">
+            <app-user-pic [imageUrl]="'https://placehold.co/400'"></app-user-pic>
+        </div>
+        <div class="header-center">
+            <h1 class="header-title">Atomic</h1>
+        </div>
+        <div class="header-right" style="font-size: 32px;">
+            <app-button 
+                label="Salvar" 
+                [icon]="'ph ph-camera'" 
+                variant="secondary" 
+                [type]="'circle'" 
+                size="medium"
+                (click)="openCamera()">
+            </app-button>
+        </div>
+    </div>
+</header>
