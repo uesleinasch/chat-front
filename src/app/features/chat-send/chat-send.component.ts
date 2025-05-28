@@ -31,7 +31,7 @@ export class ChatSendComponent implements AfterViewChecked {
     this.shouldScrollToBottom = true;
   }
 
-  onPhotoReceived(photo: File) {
+  onPhotoReceived(photoData: { file: File; message: string }) {
     const reader = new FileReader();
     reader.onload = (e) => {
       const photoUrl = e.target?.result as string;
@@ -40,6 +40,7 @@ export class ChatSendComponent implements AfterViewChecked {
         id: this.generateId(),
         type: 'image',
         imageUrl: photoUrl,
+        text: photoData.message || undefined,
         timestamp: new Date(),
         isSent: true,
         isDelivered: true,
@@ -49,7 +50,7 @@ export class ChatSendComponent implements AfterViewChecked {
       this.messages.update(msgs => [...msgs, newMessage]);
       this.shouldScrollToBottom = true;
     };
-    reader.readAsDataURL(photo);
+    reader.readAsDataURL(photoData.file);
   }
 
   ngAfterViewChecked() {

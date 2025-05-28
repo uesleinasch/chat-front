@@ -1,4 +1,17 @@
 <div class="message-input">
+  @if (imagePreview()) {
+    <div class="image-preview">
+      <div class="image-preview__container">
+        <img [src]="imagePreview()" alt="Preview da imagem" />
+        <button 
+          class="image-preview__close" 
+          (click)="clearImagePreview()"
+          aria-label="Remover imagem">
+          ×
+        </button>
+      </div>
+    </div>
+  }
   <div class="message-input__container">
     <!-- Botão de Câmera -->
     <div class="message-input__camera">
@@ -27,7 +40,7 @@
 
     <!-- Botão de Envio -->
     <div class="message-input__send">
-      @if (message().trim()) {
+      @if (message().trim() || selectedFile()) {
         <app-button 
           [icon]="'ph ph-paper-plane-tilt'" 
           variant="primary" 

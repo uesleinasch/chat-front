@@ -115,3 +115,66 @@
   outline: 0.2rem solid var(--color-primary-500);
   outline-offset: 0.2rem;
 }
+
+/* Estilos para preview de imagem */
+.image-preview {
+  padding: var(--space-3);
+  border-bottom: 0.1rem solid var(--border-light);
+}
+
+.image-preview__container {
+  position: relative;
+  display: inline-block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.image-preview__container img {
+  max-width: 20rem;
+  max-height: 15rem;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-md);
+}
+
+.image-preview__close {
+  position: absolute;
+  top: var(--space-1);
+  right: var(--space-1);
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  font-size: 1.6rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.image-preview__close:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: scale(1.1);
+}
+
+.image-preview__close:focus-visible {
+  outline: 0.2rem solid var(--color-primary-500);
+  outline-offset: 0.2rem;
+}
+
+@media (max-width: 768px) {
+  .image-preview {
+    padding: var(--space-2);
+  }
+  
+  .image-preview__container img {
+    max-width: 100%;
+    max-height: 12rem;
+  }
+}

@@ -7,6 +7,9 @@
       @case ('image') {
         <div class="message-image">
           <img [src]="message.imageUrl" alt="Imagem enviada" />
+          @if (message.text) {
+            <div class="message-text">{{ message.text }}</div>
+          }
         </div>
       }
     }
