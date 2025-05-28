@@ -1,6 +1,6 @@
 .chat-header {
-  height: 8.6rem; /* 86px */
-  max-height: 8.6rem;
+  height: var(--header-height); /* 86px */
+  max-height:var(--header-height);
   background-color: var(--color-primary-500);
   color: var(--text-inverse);
   box-shadow: var(--shadow-md);

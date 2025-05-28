@@ -1,6 +1,7 @@
+<div class="chat-container">
   <div class="messages-area">
     @for (message of messages(); track $index) {
-      <div class="message-item">{{ message }}</div>
+      <app-message-box [message]="message"></app-message-box>
     }
     
     @for (photo of photos(); track $index) {
@@ -9,8 +10,13 @@
       </div>
     }
   </div>
-  
+
+  <div class="chat-inout-area">
   <app-message-input
     (onSendMessage)="onMessageReceived($event)"
     (onSendPhoto)="onPhotoReceived($event)">
   </app-message-input>
+  </div>
+  
+
+</div>

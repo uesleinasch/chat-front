@@ -1,1 +1,19 @@
-<p>message-box works!</p>
+<div class="message-container" [class.sent]="message.isSent" [class.received]="!message.isSent">
+  <div class="message-bubble">
+    <div class="message-text">{{ message.text }}</div>
+    <div class="message-footer">
+      <span class="message-time">{{ formatTime(message.timestamp) }}</span>
+      @if (message.isSent) {
+        <div class="message-status">
+          @if (message.isRead) {
+            <span class="status-icon read">✓✓</span>
+          } @else if (message.isDelivered) {
+            <span class="status-icon delivered">✓✓</span>
+          } @else {
+            <span class="status-icon sent">✓</span>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</div>

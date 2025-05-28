@@ -198,6 +198,12 @@ html {
   --transition-fast: 0.15s ease-in-out;
   --transition-normal: 0.3s ease-in-out;
   --transition-slow: 0.5s ease-in-out;
+
+    /* ========================================
+     Footer and Header Heights
+     ======================================== */
+  --header-height: 8.6rem; /* 86px */
+  --footer-height: 8.6rem; /* 86px */
 }
 
 /* ========================================
