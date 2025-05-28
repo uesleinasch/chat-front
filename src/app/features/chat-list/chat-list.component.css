@@ -7,22 +7,21 @@
   display: block;
   width: 100%;
   max-width: 100%;
-  overflow-x: hidden;
 }
 
 .messages-list {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* height: 100vh; */
   width: 100%;
   max-width: 100%;
   background: var(--bg-primary);
-  overflow: hidden;
+
   box-shadow: var(--shadow-md);
   box-sizing: border-box;
   position: relative;
-  padding-bottom: calc(var(--footer-height));
-  padding-top: var(--header-height);
+  height: calc(100vh - var(--header-height) - var(--footer-height) );
+  overflow-y: auto;
 }
 
 /* Search Container */
@@ -36,9 +35,9 @@
   );
   border-bottom: 1px solid var(--border-light);
   box-sizing: border-box;
-  position: sticky;
+  /* position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 10; */
   backdrop-filter: blur(10px);
 }
 
@@ -49,7 +48,6 @@
   width: 100%;
   background: var(--bg-primary);
   border-radius: var(--radius-full);
-  overflow: hidden;
   box-shadow: var(--shadow-sm);
   transition: var(--transition-normal);
   box-sizing: border-box;
@@ -100,14 +98,7 @@
 
 /* Messages Container */
 .messages-container {
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
   background: var(--bg-secondary);
-  height: 0; /* Força o flex-grow a funcionar corretamente */
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-primary-300) transparent;
-  scroll-behavior: smooth;
 }
 
 .messages-list__items {
@@ -127,15 +118,6 @@
   background: transparent;
 }
 
-.messages-container::-webkit-scrollbar-thumb {
-  background: var(--color-primary-300);
-  border-radius: var(--radius-full);
-}
-
-.messages-container::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary-400);
-}
-
 .message-item {
   padding: var(--space-3);
   width: 100%;
@@ -145,7 +127,6 @@
   transition: var(--transition-normal);
   position: relative;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
 .message-item:hover {
@@ -260,12 +241,6 @@
 }
 
 /* Improved touch scrolling on mobile */
-@media (max-width: 768px) {
-  .messages-container {
-    -webkit-overflow-scrolling: touch;
-    overscroll-behavior: contain;
-  }
-}
 
 /* Animation for search results */
 .message-item {
