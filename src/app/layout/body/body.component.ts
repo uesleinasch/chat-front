@@ -1,10 +1,10 @@
 import { Component, signal } from '@angular/core';
-import { MessageInputComponent } from '../../shared/components/message-input/message-input.component';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-body',
   standalone: true,
-  imports: [MessageInputComponent],
+  imports: [RouterOutlet],
   templateUrl: './body.component.html',
   styleUrl: './body.component.css'
 })
