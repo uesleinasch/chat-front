@@ -6,7 +6,10 @@
       }
       @case ('image') {
         <div class="message-image">
-          <img [src]="message.imageUrl" alt="Imagem enviada" />
+          <img 
+            [src]="message.imageUrl" 
+            alt="Imagem enviada"
+            (click)="openImageViewer()" />
           @if (message.text) {
             <div class="message-text">{{ message.text }}</div>
           }
@@ -29,3 +32,12 @@
     </div>
   </div>
 </div>
+
+<!-- Modal de visualização de imagem -->
+@if (message.type === 'image' && message.imageUrl) {
+  <app-image-viewer
+    [imageUrl]="message.imageUrl"
+    [isVisible]="showImageViewer()"
+    (onClose)="closeImageViewer()">
+  </app-image-viewer>
+}

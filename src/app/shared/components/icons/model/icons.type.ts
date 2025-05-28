@@ -8,4 +8,6 @@ export type IconsLibrary =
   | 'ph ph-paper-plane-tilt'
   | 'ph ph-phone'
   | 'ph ph-chats-circle'
-  | 'ph ph-magnifying-glass';
+  | 'ph ph-magnifying-glass'
+  | 'ph ph-x'
+  | 'ph ph-close';

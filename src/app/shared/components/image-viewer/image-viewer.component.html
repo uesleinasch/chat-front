@@ -1,0 +1,23 @@
+@if (isVisible()) {
+  <div class="image-viewer-overlay" (click)="onBackdropClick($event)">
+    <div class="image-viewer-container">
+      <div class="image-viewer-header">
+        <app-button 
+          [icon]="'ph ph-x'" 
+          variant="tertiary" 
+          type="circle" 
+          size="large"
+          ariaLabel="Fechar visualização"
+          (onClick)="close()">
+        </app-button>
+      </div>
+      
+      <div class="image-viewer-content">
+        <img 
+          [src]="imageUrl()" 
+          alt="Imagem em tela cheia"
+          class="image-viewer-image">
+      </div>
+    </div>
+  </div>
+}
