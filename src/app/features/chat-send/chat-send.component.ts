@@ -1,6 +1,7 @@
-import { Component, signal, ViewChild, ElementRef, AfterViewChecked } from '@angular/core';
+import { Component, signal, ViewChild, ElementRef, AfterViewChecked, inject } from '@angular/core';
 import { MessageInputComponent } from "../../shared/components/message-input/message-input.component";
 import { MessageBoxComponent, Message, MessageType } from "../../shared/components/message-box/message-box.component";
+import { ApiService } from '../../core/services/api.service';
 
 @Component({
   selector: 'app-chat-send',
@@ -11,6 +12,8 @@ import { MessageBoxComponent, Message, MessageType } from "../../shared/componen
 })
 export class ChatSendComponent implements AfterViewChecked {
   @ViewChild('messagesContainer', { static: false }) messagesContainer!: ElementRef<HTMLDivElement>;
+  
+  private apiService = inject(ApiService);
   
   messages = signal<Message[]>([]);
   private shouldScrollToBottom = false;
@@ -29,6 +32,9 @@ export class ChatSendComponent implements AfterViewChecked {
     
     this.messages.update(msgs => [...msgs, newMessage]);
     this.shouldScrollToBottom = true;
+    
+    // Envia mensagem para a API
+    this.sendMessageToApi({ text: message });
   }
 
   onPhotoReceived(photoData: { file: File; message: string }) {
@@ -49,6 +55,9 @@ export class ChatSendComponent implements AfterViewChecked {
       
       this.messages.update(msgs => [...msgs, newMessage]);
       this.shouldScrollToBottom = true;
+      
+      // Envia foto para a API
+      this.sendPhotoToApi(photoData);
     };
     reader.readAsDataURL(photoData.file);
   }
@@ -65,16 +74,48 @@ export class ChatSendComponent implements AfterViewChecked {
     if (this.messagesContainer) {
       const element = this.messagesContainer.nativeElement;
       
-      // Verifica se o usuário está próximo ao final (dentro de 100px)
       const isNearBottom = element.scrollHeight - element.scrollTop - element.clientHeight < 100;
       
-      // Só rola se estiver próximo ao final ou se for a primeira mensagem
       if (isNearBottom || this.messages().length === 1) {
         setTimeout(() => {
           element.scrollTop = element.scrollHeight;
         }, 0);
       }
     }
+  }
+
+  /**
+   * Envia mensagem de texto para a API
+   */
+  private sendMessageToApi(payload: { text: string }): void {
+    this.apiService.postData('/api/messages', payload)
+      .subscribe({
+        next: (response) => {
+          console.log('Mensagem enviada com sucesso:', response);
+        },
+        error: (error) => {
+          console.error('Erro ao enviar mensagem:', error);
+        }
+      });
+  }
+
+  /**
+   * Envia foto com mensagem para a API
+   */
+  private sendPhotoToApi(photoData: { file: File; message: string }): void {
+    const payload = {
+      message: photoData.message || ''
+    };
+    
+    this.apiService.postData('/api/messages/photo', payload, [photoData.file])
+      .subscribe({
+        next: (response) => {
+          console.log('Foto enviada com sucesso:', response);
+        },
+        error: (error) => {
+          console.error('Erro ao enviar foto:', error);
+        }
+      });
   }
   
   private generateId(): string {
