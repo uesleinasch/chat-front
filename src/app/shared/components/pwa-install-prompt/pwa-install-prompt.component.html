@@ -1,0 +1,28 @@
+@if (isVisible()) {
+  <div class="pwa-install-overlay">
+    <div class="pwa-install-modal">
+      <div class="modal-content">
+        <h2 class="title">zChat</h2>
+        
+        <div class="description">
+          <p>Instale o app em seu dispositivo para uma experiência mais rápida e fluida!</p>
+          <div class="benefits">
+            <span>⚡ Carregamento instantâneo</span>
+            <span>📱 Acesso direto pela tela inicial</span>
+            <span>🚀 Performance otimizada</span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="install-btn" (click)="install()">
+            📲 Instalar
+          </button>
+          
+          <button class="dismiss-btn" (click)="dismiss()">
+            Prefiro mais lento
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+}

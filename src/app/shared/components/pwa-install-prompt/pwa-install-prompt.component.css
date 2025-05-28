@@ -1,0 +1,142 @@
+.pwa-install-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn var(--transition-normal);
+}
+
+.pwa-install-modal {
+  background: var(--bg-surface);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-8);
+  max-width: 40rem;
+  width: 90%;
+  box-shadow: var(--shadow-2xl);
+  animation: slideUp var(--transition-normal);
+}
+
+.modal-content {
+  text-align: center;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-weight-bold);
+  margin: 0 0 var(--space-6) 0;
+  background: linear-gradient(135deg, var(--color-primary-500) 0%, var(--color-primary-700) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  margin-bottom: var(--space-8);
+}
+
+.description p {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  margin: 0 0 var(--space-4) 0;
+  line-height: 1.5;
+}
+
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.benefits span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.install-btn {
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-600) 100%);
+  color: var(--text-inverse);
+  border: none;
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-xl);
+  font-size: var(--text-md);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-primary);
+}
+
+.install-btn:hover {
+  transform: translateY(-0.2rem);
+  box-shadow: var(--shadow-primary-lg);
+}
+
+.install-btn:active {
+  transform: translateY(0);
+}
+
+.dismiss-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  padding: var(--space-3);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--transition-fast);
+}
+
+.dismiss-btn:hover {
+  color: var(--text-primary);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .pwa-install-modal {
+    padding: 24px;
+    margin: 16px;
+  }
+  
+  .title {
+    font-size: 28px;
+  }
+  
+  .description p {
+    font-size: 16px;
+  }
+}

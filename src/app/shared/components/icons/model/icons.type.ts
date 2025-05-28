@@ -10,4 +10,5 @@ export type IconsLibrary =
   | 'ph ph-chats-circle'
   | 'ph ph-magnifying-glass'
   | 'ph ph-x'
-  | 'ph ph-close';
+  | 'ph ph-close'
+  | 'ph ph-download';
