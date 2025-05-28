@@ -23,7 +23,7 @@ html {
   --color-primary-200: #91d5ff;
   --color-primary-300: #69c0ff;
   --color-primary-400: #40a9ff;
-  --color-primary-500: #00AAE8; /* Main Primary */
+  --color-primary-500: #00aae8; /* Main Primary */
   --color-primary-600: #0099d1;
   --color-primary-700: #0081b3;
   --color-primary-800: #006d96;
@@ -50,15 +50,15 @@ html {
   --color-accent-success: #52c41a;
   --color-accent-success-light: #73d13d;
   --color-accent-success-dark: #389e0d;
-  
+
   --color-accent-warning: #faad14;
   --color-accent-warning-light: #ffc53d;
   --color-accent-warning-dark: #d48806;
-  
+
   --color-accent-error: #ff4d4f;
   --color-accent-error-light: #ff7875;
   --color-accent-error-dark: #cf1322;
-  
+
   --color-accent-info: #1890ff;
   --color-accent-info-light: #40a9ff;
   --color-accent-info-dark: #096dd9;
@@ -103,24 +103,43 @@ html {
   --text-muted: var(--color-neutral-400);
 
   /* ========================================
+     TEX SIZES
+     ======================================== */
+  --text-xs: 1.2rem; /* 12px */
+  --text-sm: 1.4rem; /* 14px */
+  --text-md: 1.6rem; /* 16px */
+  --text-lg: 1.8rem; /* 18px */
+  --text-xl: 2rem; /* 20px */
+  --text-2xl: 2.4rem; /* 24px */
+  --text-3xl: 3.2rem; /* 32px */
+  
+  /* ========================================
+     TEX WEIGHTS
+     ======================================== */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  /* ========================================
      BOX SHADOWS
      ======================================== */
   /* Elevation Shadows */
   --shadow-xs: 0 0.1rem 0.2rem rgba(0, 0, 0, 0.05);
-  --shadow-sm: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1), 
-               0 0.1rem 0.2rem rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1), 
-               0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.1), 
-               0 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 2rem 2.5rem -0.5rem rgba(0, 0, 0, 0.1), 
-               0 0.8rem 1rem -0.4rem rgba(0, 0, 0, 0.04);
+  --shadow-sm: 0 0.1rem 0.3rem rgba(0, 0, 0, 0.1),
+    0 0.1rem 0.2rem rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 0.4rem 0.6rem -0.1rem rgba(0, 0, 0, 0.1),
+    0 0.2rem 0.4rem -0.1rem rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 1rem 1.5rem -0.3rem rgba(0, 0, 0, 0.1),
+    0 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 2rem 2.5rem -0.5rem rgba(0, 0, 0, 0.1),
+    0 0.8rem 1rem -0.4rem rgba(0, 0, 0, 0.04);
   --shadow-2xl: 0 2.5rem 5rem -1.2rem rgba(0, 0, 0, 0.25);
 
   /* Colored Shadows (with primary color) */
   --shadow-primary: 0 0.4rem 1.4rem rgba(0, 170, 232, 0.15);
   --shadow-primary-lg: 0 1rem 2rem rgba(0, 170, 232, 0.2);
-  
+
   /* Inner Shadows */
   --shadow-inner: inset 0 0.2rem 0.4rem rgba(0, 0, 0, 0.06);
   --shadow-inner-lg: inset 0 0.4rem 0.8rem rgba(0, 0, 0, 0.1);
@@ -148,17 +167,17 @@ html {
      ======================================== */
   --space-0: 0;
   --space-px: 0.1rem; /* 1px */
-  --space-1: 0.4rem;  /* 4px */
-  --space-2: 0.8rem;  /* 8px */
-  --space-3: 1.2rem;  /* 12px */
-  --space-4: 1.6rem;  /* 16px */
-  --space-5: 2rem;    /* 20px */
-  --space-6: 2.4rem;  /* 24px */
-  --space-8: 3.2rem;  /* 32px */
-  --space-10: 4rem;   /* 40px */
+  --space-1: 0.4rem; /* 4px */
+  --space-2: 0.8rem; /* 8px */
+  --space-3: 1.2rem; /* 12px */
+  --space-4: 1.6rem; /* 16px */
+  --space-5: 2rem; /* 20px */
+  --space-6: 2.4rem; /* 24px */
+  --space-8: 3.2rem; /* 32px */
+  --space-10: 4rem; /* 40px */
   --space-12: 4.8rem; /* 48px */
   --space-16: 6.4rem; /* 64px */
-  --space-20: 8rem;   /* 80px */
+  --space-20: 8rem; /* 80px */
   --space-24: 9.6rem; /* 96px */
   --space-32: 12.8rem; /* 128px */
 
@@ -186,32 +205,75 @@ html {
    ======================================== */
 
 /* Background utilities */
-.bg-primary { background-color: var(--bg-primary); }
-.bg-secondary { background-color: var(--bg-secondary); }
-.bg-accent { background-color: var(--bg-accent); }
-.bg-surface { background-color: var(--bg-surface); }
+.bg-primary {
+  background-color: var(--bg-primary);
+}
+.bg-secondary {
+  background-color: var(--bg-secondary);
+}
+.bg-accent {
+  background-color: var(--bg-accent);
+}
+.bg-surface {
+  background-color: var(--bg-surface);
+}
 
 /* Shadow utilities */
-.shadow-xs { box-shadow: var(--shadow-xs); }
-.shadow-sm { box-shadow: var(--shadow-sm); }
-.shadow-md { box-shadow: var(--shadow-md); }
-.shadow-lg { box-shadow: var(--shadow-lg); }
-.shadow-xl { box-shadow: var(--shadow-xl); }
-.shadow-2xl { box-shadow: var(--shadow-2xl); }
-.shadow-primary { box-shadow: var(--shadow-primary); }
-.shadow-glow { box-shadow: var(--shadow-glow); }
+.shadow-xs {
+  box-shadow: var(--shadow-xs);
+}
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+.shadow-2xl {
+  box-shadow: var(--shadow-2xl);
+}
+.shadow-primary {
+  box-shadow: var(--shadow-primary);
+}
+.shadow-glow {
+  box-shadow: var(--shadow-glow);
+}
 
 /* Text color utilities */
-.text-primary { color: var(--text-primary); }
-.text-secondary { color: var(--text-secondary); }
-.text-accent { color: var(--text-accent); }
-.text-inverse { color: var(--text-inverse); }
+.text-primary {
+  color: var(--text-primary);
+}
+.text-secondary {
+  color: var(--text-secondary);
+}
+.text-accent {
+  color: var(--text-accent);
+}
+.text-inverse {
+  color: var(--text-inverse);
+}
 
 /* Border utilities */
-.border-light { border: 1px solid var(--border-light); }
-.border-medium { border: 1px solid var(--border-medium); }
-.border-primary { border: 1px solid var(--border-primary); }
+.border-light {
+  border: 1px solid var(--border-light);
+}
+.border-medium {
+  border: 1px solid var(--border-medium);
+}
+.border-primary {
+  border: 1px solid var(--border-primary);
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
-
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

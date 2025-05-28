@@ -1,0 +1,6 @@
+.user-pic {
+  border-radius: var(--radius-lg);
+  object-fit: fill;
+  display: block;
+  box-sizing: border-box;
+}
