@@ -1,3 +1,4 @@
+<app-header [variant]="'inner'"></app-header>
 <div class="chat-container">
   <div class="messages-area" #messagesContainer>
     @for (message of messages(); track message.id) {
@@ -11,6 +12,4 @@
     (onSendPhoto)="onPhotoReceived($event)">
   </app-message-input>
   </div>
-  
-
 </div>

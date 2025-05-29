@@ -11,4 +11,11 @@ export type IconsLibrary =
   | 'ph ph-magnifying-glass'
   | 'ph ph-x'
   | 'ph ph-close'
-  | 'ph ph-download';
+  | 'ph ph-download'
+  | 'ph ph-arrow-left'
+  | 'ph ph-arrow-right'
+  | 'ph ph-arrow-up'
+  | 'ph ph-arrow-down'
+  | 'ph ph-check'
+  | 'ph ph-check-circle'
+  | 'ph ph-check-square';

@@ -1,20 +1,29 @@
-<header class="chat-header">
+<header class="chat-header" [class.inner-mode]="variant() === 'inner'">
     <div class="header-container">
         <div class="header-left">
+            @if (variant() === 'inner') {
+            <app-button label="Voltar" [icon]="'ph ph-arrow-left'" variant="tertiary" [type]="'circle'" size="medium"
+                (click)="goBack()">
+            </app-button>
+            }
             <app-user-pic [imageUrl]="'https://placehold.co/400'"></app-user-pic>
         </div>
+        @if(variant() === 'out'){
         <div class="header-center">
             <h1 class="header-title">zChat</h1>
         </div>
+        }
+
         <div class="header-right" style="font-size: 32px;">
-            <app-button 
-                label="Salvar" 
-                [icon]="'ph ph-camera'" 
-                variant="secondary" 
-                [type]="'circle'" 
-                size="medium"
+            @if (variant() === 'out') {
+            <app-button label="Câmera" [icon]="'ph ph-camera'" variant="secondary" [type]="'circle'" size="medium"
                 (click)="openCamera()">
             </app-button>
+            } @else {
+            <app-button label="Chamada" [icon]="'ph ph-phone'" variant="tertiary" [type]="'circle'" size="medium"
+                (click)="makeCall()">
+            </app-button>
+            }
         </div>
     </div>
 </header>

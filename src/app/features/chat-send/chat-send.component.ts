@@ -2,11 +2,12 @@ import { Component, signal, ViewChild, ElementRef, AfterViewChecked, inject } fr
 import { MessageInputComponent } from "../../shared/components/message-input/message-input.component";
 import { MessageBoxComponent, Message, MessageType } from "../../shared/components/message-box/message-box.component";
 import { ApiService } from '../../core/services/api.service';
+import { HeaderComponent } from "../../layout/header/header.component";
 
 @Component({
   selector: 'app-chat-send',
   standalone: true,
-  imports: [MessageInputComponent, MessageBoxComponent],
+  imports: [MessageInputComponent, MessageBoxComponent, HeaderComponent],
   templateUrl: './chat-send.component.html',
   styleUrl: './chat-send.component.css'
 })

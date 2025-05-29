@@ -1,6 +1,8 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from "../../layout/footer/footer.component";
+import { HeaderComponent } from "../../layout/header/header.component";
 
 interface ChatMessage {
   id: string;
@@ -13,7 +15,7 @@ interface ChatMessage {
 @Component({
   selector: 'app-chat-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent],
   templateUrl: './chat-list.component.html',
   styleUrl: './chat-list.component.css',
 })
