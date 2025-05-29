@@ -2,7 +2,11 @@
   @if (imagePreview()) {
     <div class="image-preview">
       <div class="image-preview__container">
-        <img [src]="imagePreview()" alt="Preview da imagem" />
+        <img 
+          [src]="imagePreview()" 
+          alt="Preview da imagem"
+          (load)="onImageLoad()"
+          (error)="onImageError()" />
         <button 
           class="image-preview__close" 
           (click)="clearImagePreview()"
@@ -53,11 +57,11 @@
     </div>
   </div>
 
-  <!-- Input de arquivo oculto para câmera -->
+  <!-- Input de arquivo otimizado para PWA -->
   <input 
     #fileInput
     type="file" 
-    accept="image/*" 
+    accept="image/*,image/jpeg,image/jpg,image/png,image/webp" 
     capture="environment"
     style="display: none;"
     (change)="onFileSelected($event)">

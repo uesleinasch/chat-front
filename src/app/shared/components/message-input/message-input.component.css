@@ -128,6 +128,12 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: var(--shadow-sm);
+  background: var(--color-neutral-100);
+  min-height: 10rem;
+  min-width: 10rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .image-preview__container img {
@@ -137,6 +143,31 @@
   height: auto;
   display: block;
   border-radius: var(--radius-md);
+  position: relative;
+  z-index: 1;
+  /* Força re-render em PWA */
+  image-rendering: auto;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Loading state para PWA */
+.image-preview__container::before {
+  content: "📷";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  color: var(--color-neutral-400);
+  z-index: 0;
+}
+
+.image-preview__container:has(img) {
+  background: transparent;
+}
+
+.image-preview__container:has(img)::before {
+  display: none;
 }
 
 .image-preview__close {

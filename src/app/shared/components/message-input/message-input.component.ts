@@ -47,7 +47,13 @@ export class MessageInputComponent {
   openCamera() {
     const input = this.fileInput()?.nativeElement;
     if (input) {
-      input.click();
+      // Limpa qualquer estado anterior
+      this.clearImagePreview();
+      
+      // Pequeno delay para garantir que o input foi limpo
+      setTimeout(() => {
+        input.click();
+      }, 100);
     }
   }
 
@@ -58,13 +64,25 @@ export class MessageInputComponent {
     if (file && file.type.startsWith('image/')) {
       this.selectedFile.set(file);
       
-      // Criar preview da imagem
+      // Criar preview da imagem - versão mais robusta para PWA
       const reader = new FileReader();
       reader.onload = (e) => {
-        this.imagePreview.set(e.target?.result as string);
+        const result = e.target?.result as string;
+        if (result) {
+          // Force update do signal para garantir que a mudança seja detectada
+          this.imagePreview.set('');
+          setTimeout(() => {
+            this.imagePreview.set(result);
+          }, 10);
+        }
       };
-      reader.readAsDataURL(file);
       
+      reader.onerror = (error) => {
+        console.error('Erro ao ler arquivo:', error);
+        this.clearImagePreview();
+      };
+      
+      reader.readAsDataURL(file);
       input.value = '';
     }
   }
@@ -72,6 +90,21 @@ export class MessageInputComponent {
   clearImagePreview() {
     this.imagePreview.set('');
     this.selectedFile.set(null);
+    
+    // Força limpeza do input file
+    const input = this.fileInput()?.nativeElement;
+    if (input) {
+      input.value = '';
+    }
+  }
+
+  onImageLoad() {
+    console.log('Preview carregado com sucesso');
+  }
+  
+  onImageError() {
+    console.error('Erro ao carregar preview');
+    this.clearImagePreview();
   }
 
   onKeyPress(event: KeyboardEvent) {
