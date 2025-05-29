@@ -29,4 +29,5 @@
     gap: var(--space-4);
     padding: 0px;
     margin: 0px;
+    list-style: none;
 }
