@@ -2,11 +2,10 @@ import { Component, input, output, signal, HostListener } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'app-image-viewer',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './image-viewer.component.html',
-  styleUrl: './image-viewer.component.css'
+    selector: 'app-image-viewer',
+    imports: [ButtonComponent],
+    templateUrl: './image-viewer.component.html',
+    styleUrl: './image-viewer.component.css'
 })
 export class ImageViewerComponent {
   imageUrl = input.required<string>();

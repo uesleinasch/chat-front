@@ -13,11 +13,10 @@ interface ChatMessage {
 }
 
 @Component({
-  selector: 'app-chat-list',
-  standalone: true,
-  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent],
-  templateUrl: './chat-list.component.html',
-  styleUrl: './chat-list.component.css',
+    selector: 'app-chat-list',
+    imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent],
+    templateUrl: './chat-list.component.html',
+    styleUrl: './chat-list.component.css'
 })
 export class ChatListComponent {
   searchText = signal('');

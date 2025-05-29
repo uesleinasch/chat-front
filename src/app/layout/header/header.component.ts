@@ -6,11 +6,10 @@ import { CameraModalComponent } from "../../shared/components/camera-modal/camer
 import { appTitle } from '../../core/consts/app.const';
 
 @Component({
-  selector: 'app-header',
-  standalone: true,
-  imports: [UserPicComponent, ButtonComponent, CameraModalComponent],
-  templateUrl: './header.component.html',
-  styleUrl: './header.component.css'
+    selector: 'app-header',
+    imports: [UserPicComponent, ButtonComponent, CameraModalComponent],
+    templateUrl: './header.component.html',
+    styleUrl: './header.component.css'
 })
 export class HeaderComponent {
   @ViewChild(CameraModalComponent, { static: false }) cameraModal!: CameraModalComponent;

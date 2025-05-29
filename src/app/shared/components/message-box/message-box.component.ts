@@ -15,11 +15,10 @@ export interface Message {
 }
 
 @Component({
-  selector: 'app-message-box',
-  standalone: true,
-  imports: [ImageViewerComponent],
-  templateUrl: './message-box.component.html',
-  styleUrl: './message-box.component.css'
+    selector: 'app-message-box',
+    imports: [ImageViewerComponent],
+    templateUrl: './message-box.component.html',
+    styleUrl: './message-box.component.css'
 })
 export class MessageBoxComponent {
   @Input() message!: Message;

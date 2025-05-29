@@ -2,11 +2,10 @@ import { Component, signal, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-pwa-install-prompt',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './pwa-install-prompt.component.html',
-  styleUrl: './pwa-install-prompt.component.css'
+    selector: 'app-pwa-install-prompt',
+    imports: [CommonModule],
+    templateUrl: './pwa-install-prompt.component.html',
+    styleUrl: './pwa-install-prompt.component.css'
 })
 export class PwaInstallPromptComponent {
   isVisible = signal(true);

@@ -1,13 +1,14 @@
-import { Component, output, signal, OnDestroy, ElementRef, ViewChild, inject } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
 import { ApiService } from '../../../core/services/api.service';
+import { Component, ElementRef, inject, OnDestroy, output, signal, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-camera-modal',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './camera-modal.component.html',
-  styleUrl: './camera-modal.component.css'
+    
+    selector: 'app-camera-modal',
+    imports: [ButtonComponent],
+    templateUrl: './camera-modal.component.html',
+    styleUrl: './camera-modal.component.css',
+    
 })
 export class CameraModalComponent implements OnDestroy {
   @ViewChild('video', { static: false }) videoElement!: ElementRef<HTMLVideoElement>;

@@ -2,11 +2,10 @@ import { Component, output, signal, ElementRef, viewChild } from '@angular/core'
 import { ButtonComponent } from '../button/button.component';
 
 @Component({
-  selector: 'app-message-input',
-  standalone: true,
-  imports: [ButtonComponent],
-  templateUrl: './message-input.component.html',
-  styleUrl: './message-input.component.css'
+    selector: 'app-message-input',
+    imports: [ButtonComponent],
+    templateUrl: './message-input.component.html',
+    styleUrl: './message-input.component.css'
 })
 export class MessageInputComponent {
   message = signal<string>('');

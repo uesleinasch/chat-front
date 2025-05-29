@@ -3,11 +3,10 @@ import { IconsLibrary } from '../icons/model/icons.type';
 import { IconsComponent } from "../icons/icon.component";
 
 @Component({
-  selector: 'app-button',
-  standalone: true,
-  imports: [IconsComponent],
-  templateUrl: './button.component.html',
-  styleUrl: './button.component.css'
+    selector: 'app-button',
+    imports: [IconsComponent],
+    templateUrl: './button.component.html',
+    styleUrl: './button.component.css'
 })
 export class ButtonComponent {
   label = input<string>('Click Me');

@@ -5,11 +5,10 @@ import { ApiService } from '../../core/services/api.service';
 import { HeaderComponent } from "../../layout/header/header.component";
 
 @Component({
-  selector: 'app-chat-send',
-  standalone: true,
-  imports: [MessageInputComponent, MessageBoxComponent, HeaderComponent],
-  templateUrl: './chat-send.component.html',
-  styleUrl: './chat-send.component.css'
+    selector: 'app-chat-send',
+    imports: [MessageInputComponent, MessageBoxComponent, HeaderComponent],
+    templateUrl: './chat-send.component.html',
+    styleUrl: './chat-send.component.css'
 })
 export class ChatSendComponent implements AfterViewChecked {
   @ViewChild('messagesContainer', { static: false }) messagesContainer!: ElementRef<HTMLDivElement>;
