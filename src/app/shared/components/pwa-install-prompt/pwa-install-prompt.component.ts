@@ -1,5 +1,6 @@
-import { Component, signal, inject } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule } from "@angular/common";
+import { Component, signal } from "@angular/core";
+
 
 @Component({
     selector: 'app-pwa-install-prompt',
