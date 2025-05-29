@@ -2,6 +2,7 @@ import { Component, input, output, inject } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserPicComponent } from "../../shared/components/user-pic/user-pic.component";
 import { ButtonComponent } from "../../shared/components/button/button.component";
+import { appTitle } from '../../core/consts/app.const';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,7 @@ import { ButtonComponent } from "../../shared/components/button/button.component
 })
 export class HeaderComponent {
   private location = inject(Location);
-  
+    title = appTitle
   variant = input<'inner' | 'out'>('out');
   onBack = output<void>();
   onCall = output<string>();
