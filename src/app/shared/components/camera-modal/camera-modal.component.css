@@ -1,0 +1,157 @@
+.camera-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--space-4);
+}
+
+.camera-modal-content {
+  background: var(--bg-primary);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-2xl);
+  width: 100%;
+  max-width: 50rem;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-4) var(--space-6);
+  border-bottom: 1px solid var(--border-light);
+}
+
+.camera-modal-title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.camera-modal-body {
+  flex: 1;
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* Camera Container */
+.camera-container {
+  width: 100%;
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--color-neutral-900);
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+}
+
+.camera-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.camera-controls {
+  position: absolute;
+  bottom: var(--space-4);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Image Preview */
+.image-preview {
+  width: 100%;
+  max-width: 40rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+
+.captured-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-height: 40rem;
+  object-fit: contain;
+}
+
+/* Preview Actions */
+.preview-actions {
+  display: flex;
+  gap: var(--space-4);
+  width: 100%;
+  max-width: 30rem;
+}
+
+.preview-actions app-button {
+  flex: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .camera-modal-overlay {
+    padding: var(--space-2);
+  }
+  
+  .camera-modal-content {
+    max-height: 95vh;
+  }
+  
+  .camera-modal-header {
+    padding: var(--space-3) var(--space-4);
+  }
+  
+  .camera-modal-title {
+    font-size: var(--text-lg);
+  }
+  
+  .camera-modal-body {
+    padding: var(--space-4);
+    gap: var(--space-4);
+  }
+  
+  .camera-container {
+    aspect-ratio: 3 / 4;
+  }
+  
+  .preview-actions {
+    flex-direction: column;
+  }
+}
+
+/* Loading State */
+.ph-spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

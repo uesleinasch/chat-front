@@ -122,4 +122,10 @@ export class ChatSendComponent implements AfterViewChecked {
   private generateId(): string {
     return Math.random().toString(36).substr(2, 9);
   }
+  
+  onCameraImageSent() {
+    // Atualiza a lista de mensagens quando uma imagem é enviada pela câmera
+    // Aqui podemos implementar uma lógica para recarregar as mensagens se necessário
+    console.log('Imagem enviada pela câmera');
+  }
 }

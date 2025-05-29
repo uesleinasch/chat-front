@@ -1,4 +1,7 @@
-<app-header [variant]="'inner'"></app-header>
+<app-header 
+  [variant]="'inner'" 
+  (onImageSent)="onCameraImageSent()">
+</app-header>
 <div class="chat-container">
   <div class="messages-area" #messagesContainer>
     @for (message of messages(); track message.id) {

@@ -18,4 +18,6 @@ export type IconsLibrary =
   | 'ph ph-arrow-down'
   | 'ph ph-check'
   | 'ph ph-check-circle'
-  | 'ph ph-check-square';
+  | 'ph ph-check-square'
+  | 'ph ph-spinner-gap'
+  | 'ph ph-spinner';

@@ -1,0 +1,79 @@
+@if (isOpen()) {
+  <div class="camera-modal-overlay" (click)="closeModal()">
+    <div class="camera-modal-content" (click)="$event.stopPropagation()">
+      <div class="camera-modal-header">
+        <h2 class="camera-modal-title">
+          @if (capturedImage()) {
+            Confirmar Envio
+          } @else {
+            Capturar Foto
+          }
+        </h2>
+        <app-button 
+          label="Fechar" 
+          [icon]="'ph ph-x'" 
+          variant="tertiary" 
+          [type]="'circle'" 
+          size="small"
+          (click)="closeModal()">
+        </app-button>
+      </div>
+
+      <div class="camera-modal-body">
+        @if (capturedImage()) {
+          <!-- Preview da imagem capturada -->
+          <div class="image-preview">
+            <img [src]="capturedImage()" alt="Foto capturada" class="captured-image" />
+          </div>
+          
+          <div class="preview-actions">
+            <app-button 
+              label="Repetir Foto" 
+              [icon]="'ph ph-camera'" 
+              variant="secondary" 
+              size="medium"
+              (click)="retakePhoto()">
+            </app-button>
+            
+            <app-button 
+              [label]="isCapturing() ? 'Enviando...' : 'Enviar Foto'" 
+              [icon]="isCapturing() ? 'ph ph-spinner' : 'ph ph-spinner-gap'" 
+              variant="primary" 
+              size="medium"
+              [disabled]="isCapturing()"
+              (click)="sendImage()">
+            </app-button>
+          </div>
+        } @else {
+          <!-- Interface da câmera -->
+          <div class="camera-container">
+            <video 
+              #video 
+              autoplay 
+              playsinline 
+              muted 
+              class="camera-video">
+            </video>
+            
+            <canvas 
+              #canvas 
+              class="camera-canvas" 
+              style="display: none;">
+            </canvas>
+            
+            <div class="camera-controls">
+              <app-button 
+                label="Capturar" 
+                [icon]="'ph ph-camera'" 
+                variant="primary" 
+                [type]="'circle'" 
+                size="large"
+                (click)="captureImage()">
+              </app-button>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+}

@@ -1,22 +1,26 @@
-import { Component, input, output, inject } from '@angular/core';
+import { Component, input, output, inject, ViewChild } from '@angular/core';
 import { Location } from '@angular/common';
 import { UserPicComponent } from "../../shared/components/user-pic/user-pic.component";
 import { ButtonComponent } from "../../shared/components/button/button.component";
+import { CameraModalComponent } from "../../shared/components/camera-modal/camera-modal.component";
 import { appTitle } from '../../core/consts/app.const';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [UserPicComponent, ButtonComponent],
+  imports: [UserPicComponent, ButtonComponent, CameraModalComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
+  @ViewChild(CameraModalComponent, { static: false }) cameraModal!: CameraModalComponent;
+  
   private location = inject(Location);
-    title = appTitle
+  title = appTitle
   variant = input<'inner' | 'out'>('out');
   onBack = output<void>();
   onCall = output<string>();
+  onImageSent = output<void>();
   
   goBack() {
     this.location.back();
@@ -29,23 +33,15 @@ export class HeaderComponent {
     this.onCall.emit(phoneNumber);
   }
   
-  async openCamera() {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ 
-        video: true, 
-        audio: false 
-      });
-      console.log('Câmera aberta com sucesso', stream);
-    } catch (error) {
-      console.error('Erro ao acessar a câmera:', error);
-      
-      if ((error as any).name === 'NotAllowedError') {
-        alert('Permissão de câmera negada. Verifique as configurações do navegador.');
-      } else if ((error as any).name === 'NotFoundError') {
-        alert('Nenhuma câmera encontrada no dispositivo.');
-      } else {
-        alert('Erro ao acessar a câmera.');
-      }
-    }
+  openCamera() {
+    this.cameraModal.openCamera();
+  }
+  
+  onCameraModalClose() {
+    // Modal fechado
+  }
+  
+  onCameraImageSent() {
+    this.onImageSent.emit();
   }
 }
